@@ -3,14 +3,16 @@ package com.vlad.mas_project.models
 import javax.persistence.*
 
 @Entity(name = "Employee")
-class Employee(
-    name: String? = null,
-    surname: String? = null,
-    phone: String? = null,
-    city: String? = null,
+open class Employee(
+    name: String = "",
+    surname: String = "",
+    birthday: Long = 0L,
+    city: String = "",
+    phones: List<String> = listOf(),
+    email: String = "",
     @Column(name = "start_date")
-    var startDate: Long? = null
-): Person(name, surname, phone, city){
+    open var startDate: Long? = null
+): Person(name, surname, birthday, city, phones, email){
     override fun toString(): String {
         return "Employee(startDate=$startDate) ${super.toString()}"
     }

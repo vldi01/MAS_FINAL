@@ -9,7 +9,7 @@ class Reservation(
     @Column(name = "date_to")
     var dateTo: Long? = null,
     @Column(name = "res_object")
-    var resObject: String? = null
+    var resObject: String = ""
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

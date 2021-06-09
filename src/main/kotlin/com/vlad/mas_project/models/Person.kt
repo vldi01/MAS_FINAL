@@ -5,15 +5,18 @@ import javax.persistence.*
 @Entity(name = "Person")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 open class Person(
-    open var name: String? = null,
-    open var surname: String? = null,
-    open var phone: String? = null,
-    open var city: String? = null,
+    open var name: String = "",
+    open var surname: String = "",
+    open var birthday: Long = 0L,
+    open var city: String = "",
+    @ElementCollection
+    open var phones: List<String> = listOf(),
+    open var email: String = ""
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     open var id = 0
     override fun toString(): String {
-        return "Person(name=$name, surname=$surname, phone=$phone, city=$city, id=$id)"
+        return "Person(name=$name, surname=$surname, phone=$phones, city=$city, id=$id)"
     }
 }

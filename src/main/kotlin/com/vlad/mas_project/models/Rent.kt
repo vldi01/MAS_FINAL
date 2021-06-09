@@ -10,7 +10,7 @@ data class Rent(
     var status: Status
 ) {
     private var rentObjects: ArrayList<RentObject> = arrayListOf()
-    var rc: ArrayList<RentClient> = arrayListOf()
+    var client: Client = Client()
 
     fun addRentObject(rentObject: RentObject) {
         if (rentObject.rent == null) {

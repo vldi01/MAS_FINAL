@@ -4,12 +4,14 @@ import javax.persistence.*
 
 @Entity(name = "Client")
 class Client(
-    name: String? = null,
-    surname: String? = null,
-    phone: String? = null,
-    city: String? = null,
+    name: String = "",
+    surname: String = "",
+    birthday: Long = 0L,
+    city: String = "",
+    phones: List<String> = listOf(),
+    email: String = "",
     var bonuses: Int? = null
-): Person(name, surname, phone, city){
+): Person(name, surname, birthday, city, phones, email){
 
     @OneToMany(mappedBy = "client")
     var reservations: MutableList<Reservation> = arrayListOf()

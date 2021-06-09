@@ -1,12 +1,9 @@
 package com.vlad.mas_project.models
 
-import javax.persistence.Entity
-
-@Entity
 class ATV(
-    var engineVolume: Int,
-    var color: Int,
-    var year: Int
+    var engineVolume: Int = 0,
+    var color: Int = 0,
+    var year: Int = 0
 ) : RentObject(){
     override var minAge: Int
         get() = MIN_AGE
