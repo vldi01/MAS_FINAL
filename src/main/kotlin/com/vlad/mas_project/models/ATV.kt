@@ -1,5 +1,8 @@
 package com.vlad.mas_project.models
 
+import javax.persistence.Entity
+
+@Entity
 class ATV(
     var engineVolume: Int = 0,
     var color: Int = 0,

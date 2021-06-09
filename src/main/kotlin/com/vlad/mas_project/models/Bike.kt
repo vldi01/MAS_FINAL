@@ -1,9 +1,12 @@
 package com.vlad.mas_project.models
 
+import javax.persistence.Entity
+
+@Entity
 class Bike(
-    var color: Int,
-    var height: Int,
-    var wheelSize: Int
+    var color: Int = 0,
+    var height: Int = 0,
+    var wheelSize: Int = 0
 ): RentObject() {
     override var minAge: Int
         get() = MIN_AGE
