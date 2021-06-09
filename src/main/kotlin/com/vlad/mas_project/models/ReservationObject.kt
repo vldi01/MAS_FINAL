@@ -8,7 +8,7 @@ abstract class ReservationObject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     open var id = 0
 
-    @ManyToMany(mappedBy = "objects")
+    @ManyToMany(mappedBy = "reservationObjects")
     open var reservations: MutableList<Reservation> = arrayListOf()
 
     abstract var maxPeople: Int

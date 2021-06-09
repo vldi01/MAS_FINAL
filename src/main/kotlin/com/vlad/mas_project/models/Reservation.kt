@@ -2,7 +2,7 @@ package com.vlad.mas_project.models
 
 import javax.persistence.*
 
-@Entity(name = "Reservation")
+@Entity
 class Reservation(
     @Column(name = "date_from")
     var dateFrom: Long? = null,
@@ -28,5 +28,5 @@ class Reservation(
         joinColumns = [JoinColumn(name = "res_id", referencedColumnName = "id")],
         inverseJoinColumns = [JoinColumn(name = "obj_id", referencedColumnName = "id")]
     )
-    var objects: MutableList<ReservationObject> = arrayListOf()
+    var reservationObjects: MutableList<ReservationObject> = arrayListOf()
 }
