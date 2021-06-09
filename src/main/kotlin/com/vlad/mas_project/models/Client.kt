@@ -16,10 +16,20 @@ class Client(
     @OneToMany(mappedBy = "client")
     var reservations: MutableList<Reservation> = arrayListOf()
 
+    @OneToMany(mappedBy = "client")
+    var rents: MutableList<Rent> = arrayListOf()
+
     fun addReservation(reservation: Reservation) {
         if (reservations.contains(reservation).not()) {
             reservations.add(reservation)
             reservation.client = this
+        }
+    }
+
+    fun addRent(rent: Rent) {
+        if (rents.contains(rent).not()) {
+            rents.add(rent)
+            rent.client = this
         }
     }
 

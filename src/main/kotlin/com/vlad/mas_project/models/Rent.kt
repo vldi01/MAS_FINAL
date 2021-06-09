@@ -1,23 +1,30 @@
 package com.vlad.mas_project.models
 
 import data.entity.Status
+import javax.persistence.*
 
+@Entity
 data class Rent(
-    var dateFrom: Long,
-    var dateTo: Long,
-    var peopleNumber: Int,
-    var additionalInfo: String,
-    var status: Status
+    @Column(name = "date_from")
+    var dateFrom: Long = 0L,
+    @Column(name = "date_to")
+    var dateTo: Long = 0L,
+    @Column(name = "people_number")
+    var peopleNumber: Int = 0,
+    @Column(name = "additional_info")
+    var additionalInfo: String = "",
+    var status: Status = Status.InRealisation
 ) {
-    private var rentObjects: ArrayList<RentObject> = arrayListOf()
-    var client: Client = Client()
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id = 0
 
-    fun addRentObject(rentObject: RentObject) {
-        if (rentObject.rent == null) {
-            rentObjects.add(rentObject)
-            rentObject.rent = this
-        } else {
-            throw Exception("RentObject already has a rent")
+    @ManyToOne
+    var client: Client? = null
+        set(value) {
+            if (value == null) return
+            value.addRent(this)
+            field = value
         }
-    }
+
 }

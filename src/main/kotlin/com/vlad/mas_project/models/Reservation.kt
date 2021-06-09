@@ -7,9 +7,7 @@ class Reservation(
     @Column(name = "date_from")
     var dateFrom: Long? = null,
     @Column(name = "date_to")
-    var dateTo: Long? = null,
-    @Column(name = "res_object")
-    var resObject: String = ""
+    var dateTo: Long? = null
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +21,12 @@ class Reservation(
             field = value
         }
 
-    override fun toString(): String {
-        return "Reservation(dateFrom=$dateFrom, dateTo=$dateTo, resObject=$resObject, id=$id, client.id=${client?.id})"
-    }
+
+    @ManyToMany(cascade = [CascadeType.ALL])
+    @JoinTable(
+        name = "Reservation_Object",
+        joinColumns = [JoinColumn(name = "res_id", referencedColumnName = "id")],
+        inverseJoinColumns = [JoinColumn(name = "obj_id", referencedColumnName = "id")]
+    )
+    var objects: MutableList<ReservationObject> = arrayListOf()
 }
