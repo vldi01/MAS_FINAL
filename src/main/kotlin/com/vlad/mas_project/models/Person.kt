@@ -19,4 +19,7 @@ open class Person(
     override fun toString(): String {
         return "Person(name=$name, surname=$surname, phone=$phones, city=$city, id=$id)"
     }
+
+    @OneToMany(mappedBy = "person")
+    open val tokens: List<Token> = listOf()
 }
