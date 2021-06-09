@@ -22,5 +22,5 @@ open class Person(
     }
 
     @OneToMany(mappedBy = "person")
-    open val tokens: List<Token> = listOf()
+    open val tokens: MutableList<Token> = arrayListOf()
 }

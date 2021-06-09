@@ -1,5 +1,6 @@
 package com.vlad.mas_project.models.db
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.*
 
 @Entity
@@ -9,5 +10,9 @@ class Token (val expirationDate: Long = 0L, val uuid: String = "") {
     var id = 0
 
     @ManyToOne
-    val person: Person = Person()
+    var person: Person = Person()
+        set(value) {
+            field = value
+            value.tokens.add(this)
+        }
 }

@@ -29,6 +29,7 @@ dependencies {
 	runtimeOnly("com.h2database:h2")
 	runtimeOnly("org.springframework.boot:spring-boot-devtools")
 	implementation("mysql:mysql-connector-java")
+	implementation("com.google.code.gson:gson:2.8.7")
 }
 
 tasks.withType<KotlinCompile> {

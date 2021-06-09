@@ -10,8 +10,9 @@ class Client(
     city: String = "",
     phones: List<String> = listOf(),
     email: String = "",
+    password: String = "",
     var bonuses: Int? = null
-): Person(name, surname, birthday, city, phones, email){
+): Person(name, surname, birthday, city, phones, email, password){
 
     @OneToMany(mappedBy = "client")
     var reservations: MutableList<Reservation> = arrayListOf()
