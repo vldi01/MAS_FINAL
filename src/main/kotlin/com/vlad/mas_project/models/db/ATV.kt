@@ -1,13 +1,13 @@
-package com.vlad.mas_project.models
+package com.vlad.mas_project.models.db
 
 import javax.persistence.Entity
 
 @Entity
-class Bike(
+class ATV(
+    var engineVolume: Int = 0,
     var color: Int = 0,
-    var height: Int = 0,
-    var wheelSize: Int = 0
-): RentObject() {
+    var year: Int = 0
+) : RentObject(){
     override var minAge: Int
         get() = MIN_AGE
         set(value) {
@@ -20,7 +20,7 @@ class Bike(
         }
 
     companion object {
-        private var MIN_AGE = 16
-        private var PRICE = 50
+        private var MIN_AGE = 18
+        private var PRICE = 100
     }
 }

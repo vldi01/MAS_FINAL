@@ -1,4 +1,4 @@
-package com.vlad.mas_project.models
+package com.vlad.mas_project.models.db
 
 import javax.persistence.*
 
@@ -11,7 +11,8 @@ open class Person(
     open var city: String = "",
     @ElementCollection
     open var phones: List<String> = listOf(),
-    open var email: String = ""
+    open var email: String = "",
+    open var password: String = ""
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

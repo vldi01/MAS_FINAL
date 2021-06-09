@@ -1,4 +1,4 @@
-package com.vlad.mas_project.models
+package com.vlad.mas_project.models.db
 
 import javax.persistence.*
 

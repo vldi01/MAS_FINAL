@@ -1,6 +1,5 @@
-package com.vlad.mas_project.models
+package com.vlad.mas_project.models.db
 
-import data.entity.Status
 import javax.persistence.*
 
 @Entity
