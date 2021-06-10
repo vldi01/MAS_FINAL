@@ -15,6 +15,6 @@ interface PersonRepository : CrudRepository<Person, Long> {
 
 
     @Query("SELECT p FROM Person p WHERE p.email = :email AND p.password = :password")
-    fun findByEmailAndPassword(@Param("email") email: String, @Param("password") password: String): Person
+    fun findByEmailAndPassword(@Param("email") email: String, @Param("password") password: String): Person?
 
 }

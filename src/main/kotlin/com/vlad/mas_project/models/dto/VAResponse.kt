@@ -3,17 +3,19 @@ package com.vlad.mas_project.models.dto
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
-class VAResponse(
+data class VAResponse(
     val error: Error? = null,
     val body: Any? = null
-) {
-    fun responseEntity(): ResponseEntity<VAResponse> {
-        return ResponseEntity
-            .status(error?.status ?: HttpStatus.OK)
-            .body(this)
-    }
-}
+)
 
-enum class Error(val status: HttpStatus){
-    EmailExists(HttpStatus.CONFLICT)
+fun response(
+    error: Error? = null,
+    body: Any? = null
+): ResponseEntity<VAResponse> = ResponseEntity.status(error?.status ?: HttpStatus.OK).body(VAResponse(error, body))
+
+
+enum class Error(val status: HttpStatus) {
+    EmailExists(HttpStatus.CONFLICT),
+    BadRequest(HttpStatus.BAD_REQUEST),
+    BadLogin(HttpStatus.NOT_FOUND)
 }

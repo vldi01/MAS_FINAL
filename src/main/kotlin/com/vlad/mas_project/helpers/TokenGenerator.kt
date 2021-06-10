@@ -18,5 +18,9 @@ class TokenGenerator {
         }
     }
 
-    private fun generateToken(): Token = Token(System.currentTimeMillis() + EXPIRATION_PERIOD, UUID.randomUUID().toString())
+    private fun generateToken(): Token =
+        Token(
+            Calendar.getInstance(TimeZone.getTimeZone("UTC")).timeInMillis + EXPIRATION_PERIOD,
+            UUID.randomUUID().toString()
+        )
 }
