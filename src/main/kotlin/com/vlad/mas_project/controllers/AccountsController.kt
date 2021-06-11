@@ -6,10 +6,7 @@ import com.vlad.mas_project.models.dto.*
 import com.vlad.mas_project.repositories.PersonRepository
 import com.vlad.mas_project.repositories.TokenRepository
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/accounts")
@@ -61,5 +58,11 @@ class AccountsController(val personRepository: PersonRepository,
         tokenRepository.save(token)
 
         return response(body = person.dto(token))
+    }
+
+    @GetMapping("/checkEmail")
+    fun checkEmail(@RequestParam(value = "email", defaultValue = "") email: String?): ResponseEntity<VAResponse> {
+        if (email.isNullOrEmpty()) return response(Error.BadRequest)
+        return response(body = personRepository.isExistWithEmail(email) == true)
     }
 }
