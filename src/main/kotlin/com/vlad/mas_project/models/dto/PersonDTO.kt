@@ -3,7 +3,7 @@ package com.vlad.mas_project.models.dto
 import com.vlad.mas_project.models.db.Person
 import com.vlad.mas_project.models.db.Token
 
-data class PersonDTO(
+open class PersonDTO(
     var name: String = "",
     var surname: String = "",
     var birthday: Long = 0L,

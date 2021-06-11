@@ -8,13 +8,13 @@ import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 @Repository
-interface PersonRepository : CrudRepository<Person, Long> {
+interface ClientRepository : CrudRepository<Client, Long> {
 
-    @Query("SELECT true FROM Person WHERE email = :email")
+    @Query("SELECT true FROM Client WHERE email = :email")
     fun isExistWithEmail(@Param("email") email: String): Boolean?
 
 
-    @Query("SELECT p FROM Person p WHERE p.email = :email AND p.password = :password")
-    fun findByEmailAndPassword(@Param("email") email: String, @Param("password") password: String): Person?
+    @Query("SELECT c FROM Client c WHERE c.email = :email AND c.password = :password")
+    fun findByEmailAndPassword(@Param("email") email: String, @Param("password") password: String): Client?
 
 }

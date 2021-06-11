@@ -1,6 +1,6 @@
 package com.vlad.mas_project.repositories
 
-import com.vlad.mas_project.models.db.Person
+import com.vlad.mas_project.models.db.Client
 import com.vlad.mas_project.models.db.Token
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query
@@ -16,7 +16,7 @@ interface TokenRepository : CrudRepository<Token, String> {
     fun isExist(@Param("uuid") uuid: String): Boolean?
 
     @Query("SELECT token.person FROM Token token WHERE token.uuid = :uuid")
-    fun getPersonByUuid(@Param("uuid") uuid: String): Person?
+    fun getClientByUuid(@Param("uuid") uuid: String): Client?
 
     @Transactional
     @Modifying
