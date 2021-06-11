@@ -37,7 +37,7 @@ class AccountsController(val personRepository: PersonRepository,
     }
 
     @PostMapping("/login")
-    fun login(@RequestBody loginInfo: LoginInfo): ResponseEntity<VAResponse> {
+    fun login(@RequestBody loginInfo: LoginInfoDTO): ResponseEntity<VAResponse> {
         val person = personRepository.findByEmailAndPassword(
             loginInfo.email,
             loginInfo.password
