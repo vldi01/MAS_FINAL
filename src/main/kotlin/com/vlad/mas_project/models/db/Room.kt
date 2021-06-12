@@ -6,8 +6,9 @@ import javax.persistence.Entity
 class Room(
     var kitchen: Boolean = false,
     var bathroom: Boolean = false,
-    var refrigerator: Boolean = false
-) : ReservationObject() {
+    var refrigerator: Boolean = false,
+    name: String = ""
+) : ReservationObject(name) {
     override var maxPeople: Int = 0
     override var price: Int = 0
 }
