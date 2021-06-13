@@ -14,5 +14,5 @@ open class PersonDTO(
     var token: TokenDTO? = null
 )
 
-fun Person.dto(token: Token) = dto(token.dto())
-fun Person.dto(token: TokenDTO) = PersonDTO(name, surname, birthday, city, phones, email, password, token)
+//fun Person.dto(token: Token) = dto(token.dto())
+//fun Person.dto(token: TokenDTO) = PersonDTO(name, surname, birthday, city, phones, email, password, token)

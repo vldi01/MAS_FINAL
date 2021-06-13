@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository
 import javax.transaction.Transactional
 
 @Repository
-interface ReservationObjectsRepository : CrudRepository<ReservationObject, String> {
+interface ReservationObjectsRepository : CrudRepository<ReservationObject, Int> {
    
 }
