@@ -28,9 +28,9 @@ data class Rent(
 
     @ManyToMany(cascade = [CascadeType.ALL])
     @JoinTable(
-        name = "Rent_Object",
+        name = "Rent_and_Object",
         joinColumns = [JoinColumn(name = "rent_id", referencedColumnName = "id")],
         inverseJoinColumns = [JoinColumn(name = "obj_id", referencedColumnName = "id")]
     )
-    var rentObjects: MutableList<ReservationObject> = arrayListOf()
+    var rentObjects: MutableList<RentObject> = arrayListOf()
 }

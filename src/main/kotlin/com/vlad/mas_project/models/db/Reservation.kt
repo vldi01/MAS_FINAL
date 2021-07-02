@@ -24,7 +24,7 @@ class Reservation(
 
     @ManyToMany(cascade = [CascadeType.ALL])
     @JoinTable(
-        name = "Reservation_Object",
+        name = "Reservation_and_Object",
         joinColumns = [JoinColumn(name = "res_id", referencedColumnName = "id")],
         inverseJoinColumns = [JoinColumn(name = "obj_id", referencedColumnName = "id")]
     )

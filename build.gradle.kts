@@ -20,16 +20,13 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	runtimeOnly("com.h2database:h2")
-	runtimeOnly("org.springframework.boot:spring-boot-devtools")
-	implementation("mysql:mysql-connector-java")
+
 	implementation("com.google.code.gson:gson:2.8.7")
+	implementation("org.xerial:sqlite-jdbc:3.34.0")
+	implementation("com.github.gwenn:sqlite-dialect:0.1.2")
 }
 
 tasks.withType<KotlinCompile> {
